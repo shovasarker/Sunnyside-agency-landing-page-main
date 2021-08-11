@@ -1,0 +1,48 @@
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// html {
+//     scroll-behavior: smooth;
+// }
+
+body {
+    font-size: 1.125 rem;
+    font-family: 'Barlow', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.cta-btn {
+    width: 142px;
+    line-height: 16px;
+    padding: 21px 0;
+    text-transform: uppercase;
+    font-family: 'Fraunces', serif;
+    color: $veryDarkDesaturatedBlue;
+    border: none;
+    border-radius: 9999px;
+
+}
+
+.hide-for-mobile {
+    @include breakpoint-down(medium){
+        display: none;
+    }
+}
+
+.hide-for-desktop {
+    @include breakpoint-up(large){
+        display: none;
+    }
+}

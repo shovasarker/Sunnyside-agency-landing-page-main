@@ -1,0 +1,183 @@
+
+.about {
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0px;
+
+        @include breakpoint-fixed-up(800px){
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+        }
+    }
+
+    &__img {
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &.col2 {
+            @include breakpoint-fixed-up(800px){
+                grid-column: 2/3;
+                grid-row: 1/2;
+            }
+        }
+        
+    }
+
+    &__text {
+        padding: 70px 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        @include breakpoint-up(medium){
+            padding: 70px 100px;
+        }
+
+        @include breakpoint-fixed-up(800px) {
+            align-items: flex-start;
+            text-align: left;
+            padding: 70px 60px;
+        }
+
+        @include breakpoint-up(xlarge){
+            padding-left: 165px;
+            padding-right: 100px;
+        }
+
+        &.col1 {
+            @include breakpoint-fixed-up(800px){
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+        }
+
+        h2 {
+            font-size: 32px;
+            line-height: 36px;
+            font-weight: 900;
+            color: $veryDarkDesaturatedBlue;
+            margin-bottom: 32px;
+
+            @include breakpoint-up(xlarge){
+                font-size: 40px;
+                line-height: 48px;
+            }
+        }
+
+        p {
+            font-size: 17.5px;
+            line-height: 30px;
+            color: $darkGrayishBlue;
+            margin-bottom: 36px;
+
+            @include breakpoint-fixed-up(800px){
+                font-size: 16px;
+            }
+            @include breakpoint-up(xlarge){
+                font-size: 18px;
+            }
+        }
+
+        a {
+            position: relative;
+            text-transform: uppercase;
+            color: $veryDarkDesaturatedBlue;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            font-size: 17px;
+            padding: 0 10px;
+            width: 144px;
+
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 10px;
+                z-index: -1;
+                bottom: -10%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 9999px;
+                opacity: 0.3;
+                transition: all 0.4s ease-in-out;
+            }
+        }
+        .yellow {
+            &::before {
+                background-color: $yellow;
+            }
+        }
+        .soft-red {
+            &::before {
+                background-color: $softRed;
+            }
+        }
+    }
+
+    &__img_text {
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &-text {
+            position: absolute;
+            width: 330px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            padding-bottom: 60px;
+
+            @include breakpoint-up(medium){
+                padding-bottom: 150px;
+            }
+
+            @include breakpoint-fixed-up(800px){
+                padding-bottom: 120px
+            }
+
+            @include breakpoint-up(large){
+                padding-bottom: 50px;
+            }
+
+            @include breakpoint-up(xlarge){
+                padding-bottom: 60px;
+            }
+
+            > h2 {
+                font-size: 28px;
+                font-weight: 900;
+                margin-bottom: 32px;
+            }
+            p {
+                line-height: 26px;
+            }
+
+            &.graphic {
+                color: $darkDesaturatedCyan;
+            }
+
+            &.photography {
+                color: $darkBlue;
+            }
+        }
+    }
+
+
+}

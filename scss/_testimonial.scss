@@ -1,0 +1,81 @@
+.testimonial {
+    padding: 64px 0;
+
+    @include breakpoint-up(large){
+        padding: 100px 0;
+    }
+
+    @include breakpoint-up(xlarge){
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
+    &__title {
+        text-transform: uppercase;
+        color: $grayishBlue;
+        font-family: 'Fraunces', serif;
+        text-align: center;
+        letter-spacing: 5px;
+        margin-bottom: 32px;
+        font-weight: 900;
+
+        @include breakpoint-up(large){
+            font-size: 20px;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(3, 1fr);
+            padding: 0 20px;
+        }
+
+        @include breakpoint-up(xlarge){
+            padding: 0 160px;
+        }
+    }
+
+    &__item {
+        padding: 30px 36px;
+        text-align: center;
+
+        @include breakpoint-up(medium){
+            padding: 30px 25%;
+        }
+
+        @include breakpoint-up(large){
+            padding: 30px 16px;
+        }
+
+        @include breakpoint-up(xlarge){
+            padding-bottom: 0;
+        }
+        img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin-bottom: 36px;
+        }
+
+        > p {
+            font-size: 17px;
+            line-height: 30px;
+            color: $veryDarkGrayishBlue;
+            margin-bottom: 26px;
+        }
+
+        > h4 {
+            font-size: 17px;
+            font-family: 'Fraunces',serif;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        > span {
+            font-size: 14px;
+            color: $grayishBlue;
+        }
+    }
+}

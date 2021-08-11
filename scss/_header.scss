@@ -1,0 +1,177 @@
+
+.header {
+    position: relative;
+    height: 540px;
+    background: url('../images/mobile/image-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include breakpoint-up(medium) {
+        background: url("../images/desktop/image-header.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    @include breakpoint-up(large){
+        height: 640px;
+    }
+
+    @include breakpoint-up(xlarge){
+        height: 800px;
+    }
+    &__nav {
+        padding: 32px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include breakpoint-up(medium){
+            padding: 32px 36px;
+        }
+
+        @include breakpoint-up(xlarge){
+            padding: 36px 48px;
+        }
+
+        &.open {
+
+            .header__hamburger > span {
+                opacity: 0.4;
+            }
+            .header__mobile-menu {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__logo {
+        @include breakpoint-up(large){
+            width: 150px;
+        }
+        @include breakpoint-up(xlarge){
+            width: 170px;
+        }
+    }
+
+    &__hamburger {
+        width: 26px;
+        height: 24px;
+        padding: 3px 0;
+        cursor: pointer;
+        > span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: $white;
+
+            &:not(:last-child) {
+                margin-bottom: 6px;
+            }
+        }
+    }
+
+    &__menu {
+
+        &-links {
+            display: flex;
+            align-items: center;
+            >a {
+                text-align: center;
+                font-size: 18px;
+                line-height: 18px;
+                color: $white;
+                &:not(:last-child){
+                    margin-right: 48px;
+                }
+            }
+
+            .cta-desktop {
+                padding: 20px 0;
+                color: $veryDarkDesaturatedBlue;
+                background-color: $white;
+                transition: all 0.5s ease-in-out;
+                &:hover {
+                    color: $white;
+                    background-color: rgba($color: $white, $alpha: 0.25);
+                }
+            }
+        }
+    }
+
+    &__mobile-menu {
+        position: absolute;
+        background-color: $white;
+        width: calc(100vw - 3rem);
+        top: 20%;
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+
+        @include breakpoint-up(medium) {
+            width: calc(100vw - 72px);
+        }
+        &-traingle {
+            position: absolute;
+            top: -7%;
+            left: calc(100% - 1.5rem);
+            width: 24px;
+            border-top: 12px solid transparent;
+            border-right: 12px solid $white;
+            border-bottom: 12px solid $white;
+            border-left: 12px solid transparent;
+        }
+
+        &-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 0 38px 0;
+            > a {
+                display: block;
+                line-height: 16px;
+                color: $darkGrayishBlue;
+                &:not(:last-child){
+                    margin-bottom: 40px;
+                }
+            }
+
+            .cta-mobile {
+                background-color: $yellow;
+                color: $veryDarkDesaturatedBlue;
+
+                transition: all 0.4s ease-in-out;
+                &:hover {
+                    opacity: 0.75;
+                }
+            }
+        }
+    }
+
+
+    &__text {
+        padding: 55px 24px 0 24px;
+        text-align: center;
+
+        @include breakpoint-up(xlarge){
+            padding-top: 70px;
+        }
+        > h1 {
+            text-transform: uppercase;
+            font-size: 40px;
+            line-height: 50px;
+            letter-spacing: 8px;
+            color: $white;
+            margin-bottom: 48px;
+
+            @include breakpoint-up(xlarge){
+                font-size: 54px;
+                line-height: 60px;
+                margin-bottom: 100px;
+            }
+        }
+    }
+}
